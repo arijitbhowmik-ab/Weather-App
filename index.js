@@ -46,6 +46,16 @@ async function checkWeather(city) {
   }
 }
 searchBtn.addEventListener("click", () => {
-  checkWeather(searchBox.value);
-  searchBox.value=""
+  if(searchBox.value == "")
+  {
+    document.querySelector(".weather").style.display = "none"
+    document.querySelector(".error").style.display = "block";
+    loader.style.display="none"
+  }
+  else
+  {
+    document.querySelector(".error").style.display = "none"
+    checkWeather(searchBox.value);
+    searchBox.value=""
+  }
 });
